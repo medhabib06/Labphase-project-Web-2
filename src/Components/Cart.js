@@ -9,10 +9,12 @@ const Cart = (props) => {
     const [cart, setCart] = value.cart;
     const [total, setTotal] = useState(0)
 
+
+
     useEffect(() => {
         const getTotal = () => {
             const res = cart.reduce((prev, item) => {
-                return prev + (item.retail_price_cents)
+                return prev + (item.retail_price_cents*item.count);
             }, 0)
             setTotal(res);
         }
@@ -22,16 +24,19 @@ const Cart = (props) => {
     const reduction = id => {
         cart.forEach(item => {
             if (item.id == id) {
-                item === 1 ? item.count = 1 : item.count -= 1;
+                item.count === 1 ? item.count= 1 : item.count-= 1;
             }
         })
         setCart([...cart])
     }
 
     const addition = id => {
+
         cart.forEach(item => {
+
             if (item.id == id) {
-                item.count += 1;
+                return item.count+= 1;
+
             }
         })
         setCart([...cart])
@@ -44,7 +49,7 @@ const Cart = (props) => {
     const  removeProduct=id=>{
         if(window.confirm("Do you want to remove this product ?")){
             cart.forEach((item, index)=>{
-                if(item.id === id){
+                if(item.id == id){
                     cart.splice(index,1)
                 }
             })
@@ -53,8 +58,9 @@ const Cart = (props) => {
 
     }
 
+
     return (
-        <div>
+      <div>
             {cart.map(item => (
                 <div className="details" key={item.id}>
                     <img src={item.main_picture_url} alt="snk"/>
@@ -66,7 +72,7 @@ const Cart = (props) => {
                         <p>{item.story_html}</p>
                         <div className="amount">
                             <button className="count" onClick={() => reduction(item.id)}> -</button>
-                            <span>{1}</span>
+                            <span>{item.count}</span>
                             <button className="count" onClick={() => addition(item.id)}> +</button>
                             <span>  </span>
                             <button className="delete" onClick={() => removeProduct(item.id)}> Remove from cart</button>

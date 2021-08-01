@@ -9,16 +9,19 @@ export const DataProvider = (props) => {
     useEffect(() => {
         axios
 
-            .get('https://raw.githubusercontent.com/Stupidism/goat-sneakers/master/api.json')
+            .get('https://medhabib06.github.io/API-Sneakers/api%20sneakers.json')
             .then((res) => {
                 setProducts(res.data.sneakers);
+
             })
             .catch(function (error) {
                 console.log(error);
-            })
+            });
+
 
 
     },[]);
+
 
 
     const [cart, setCart]=useState([]);
@@ -39,11 +42,15 @@ export const DataProvider = (props) => {
     }
 
 
+    console.log(products);
+
     const value={
         products:[products, setProducts],
         cart: [cart, setCart],
         addCart: addCart
     }
+
+
 
     return (
       <DataContext.Provider value={value}>

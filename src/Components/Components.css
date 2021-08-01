@@ -167,3 +167,34 @@ color: red;
 .total h3{
     color: red;
 }
+
+.AboutUs {
+    width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+    color: darkviolet;
+}
+
+.ContactUs {
+    display: flex;
+     padding: 50px;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+}
+
+.C1{
+
+    width: 700px;
+    height: 500px;
+}
+
+.Contacts{
+    color: darkviolet;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.homeImg{
+    margin-top: 60px;
+}

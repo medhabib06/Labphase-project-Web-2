@@ -6,8 +6,8 @@ import CartIcon from '../shopping-cart-solid.svg'
 import {DataContext} from "./Context";
 
 const Header = () => {
-    const value=useContext(DataContext);
-    const [cart]=value.cart;
+    const value = useContext(DataContext);
+    const [cart] = value.cart;
 
     return (
         <div>
@@ -15,8 +15,8 @@ const Header = () => {
                 <Container>
                     <Navbar.Brand><Link to="/Home" className="Brand">SNEAKERS</Link></Navbar.Brand>
                     <Nav className="me-auto">
-                        <Nav.Link> <Link to="/Products" className="nav-link">Products</Link></Nav.Link>
-                        <Nav.Link><Link to="/Contact" className="nav-link">Contact</Link></Nav.Link>
+                        <Nav.Link><Link to="/Products" className="nav-link">Products</Link></Nav.Link>
+                        <Nav.Link><Link to="/Contact.us" className="nav-link">Contact us</Link></Nav.Link>
                         <Nav.Link><Link to="/About.us" className="nav-link">About us</Link></Nav.Link>
 
                     </Nav>

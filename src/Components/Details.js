@@ -19,8 +19,16 @@ const Details = (props) => {
     };
 
     const sd = getProduct();
-    console.log(sd);
 
+    const clean =(str)=>{
+        if (str) {
+            let cstr, cstr1;
+            cstr = str.replace("<p>", "");
+            cstr1= cstr.replace("</p>", "");
+            return cstr1;
+        }
+
+    }
 
     return (
         <div>
@@ -32,7 +40,7 @@ const Details = (props) => {
                             <h2>{item.name}</h2>
                             <span>{item.retail_price_cents} cents</span>
                         </div>
-                        <p>{item.story_html}</p>
+                        <p>{clean(item.story_html)}</p>
 
                         <Link to="/cart" className='cartd' onClick={()=>addCart(item.id)}>
                             Add to cart
